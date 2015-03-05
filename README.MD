@@ -1,0 +1,1 @@
+Phoca Documentation is Joomla! CMS extension. Component which displays a list of documents on website.
