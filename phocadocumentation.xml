@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension method="upgrade" type="component" version="3">
+	<name>com_phocadocumentation</name>
+	<author>Jan Pavelka (www.phoca.cz)</author>
+	<creationDate>25/04/2014</creationDate>
+	<authorEmail></authorEmail>
+	<authorUrl>www.phoca.cz</authorUrl>
+	<copyright>Jan Pavelka</copyright>
+	<license>GNU/GPL</license>
+	<version>3.0.1</version>
+	<description>Phoca Documentation</description>
+	<scriptfile>install/script.php</scriptfile>
+
+	<install>
+		<sql>
+			<file driver="mysql" charset="utf8">install/sql/mysql/install.utf8.sql</file>
+		</sql>
+	</install>
+
+	<uninstall>
+		<sql>
+			<file driver="mysql" charset="utf8">install/sql/mysql/uninstall.utf8.sql</file>
+		</sql>
+	</uninstall>
+
+	<update>
+		<schemas/>
+	</update>
+
+	<files folder="site">
+		<filename>controller.php</filename>
+		<filename>index.html</filename>
+		<filename>phocadocumentation.php</filename>
+		<filename>router.php</filename>
+		<folder>assets</folder>
+		<folder>helpers</folder>
+		<folder>models</folder>
+		<folder>views</folder>
+	</files>
+
+	<media destination="com_phocadocumentation" folder="media">
+		<filename>index.html</filename>
+		<folder>bootstrap</folder>
+		<folder>css</folder>
+		<folder>images</folder>
+		<folder>js</folder>
+	</media>
+
+	<languages>
+		<language tag="en-GB" client="site">language/en-GB/en-GB.com_phocadocumentation.ini</language>
+		<language tag="en-GB" client="site">language/en-GB/en-GB.com_phocadocumentation.sys.ini</language>
+	</languages>
+
+	<administration>
+		<menu img="media/com_phocadocumentation/images/administrator/icon-16-pdoc-menu.png" link="option=com_phocadocumentation">COM_PHOCADOCUMENTATION</menu>
+		<submenu>
+			<menu img="media/com_phocadocumentation/images/administrator/icon-16-pdoc-control-panel.png" alt="COM_PHOCADOCUMENTATION_CONTROLPANEL" view="phocadocumentationcp" link="option=com_phocadocumentation">COM_PHOCADOCUMENTATION_CONTROLPANEL</menu>
+			<menu img="media/com_phocadocumentation/images/administrator/icon-16-pdoc-cat.png" alt="COM_PHOCADOCUMENTATION_CATEGORIES" view="categories" link="option=com_categories&amp;extension=com_content">COM_PHOCADOCUMENTATION_CATEGORIES</menu>
+			<menu img="media/com_phocadocumentation/images/administrator/icon-16-pdoc-info.png" alt="COM_PHOCADOCUMENTATION_INFO" view="phocadocumentationinfo" link="option=com_phocadocumentation&amp;view=phocadocumentationinfo">COM_PHOCADOCUMENTATION_INFO</menu>
+		</submenu>
+
+		<files folder="admin">
+			<filename>access.xml</filename>
+			<filename>config.xml</filename>
+			<filename>controller.php</filename>
+			<filename>index.html</filename>
+			<filename>phocadocumentation.php</filename>
+			<filename>phocadocumentation.xml</filename>
+			<folder>controllers</folder>
+			<folder>help</folder>
+			<folder>helpers</folder>
+			<folder>install</folder>
+			<folder>models</folder>
+			<folder>views</folder>
+		</files>
+
+		<languages>
+			<language tag="en-GB">language/en-GB/en-GB.com_phocadocumentation.ini</language>
+			<language tag="en-GB">language/en-GB/en-GB.com_phocadocumentation.sys.ini</language>
+		</languages>
+
+	</administration>
+</extension>

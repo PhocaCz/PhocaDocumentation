@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config>
+	<fields addfieldpath="/administrator/components/com_phocadocumentation/models/fields">
+		<fieldset name="display" label="COM_PHOCADOCUMENTATION_FIELD_LABELCOM_PHOCADOCUMENTATION_CONFIG_HEAD_DISPLAY_LABEL">
+		
+		<field name="phocahead1" type="phocahead"  default="COM_PHOCADOCUMENTATION_CONFIG_GENERAL_SETTINGS_LABEL" label="" description=""/>
+		
+
+<field name="cat_desc" default="" type="editor" label="COM_PHOCAPDF_FIELD_CATEGORIES_DESCRIPTION_LABEL" description="COM_PHOCAPDF_FIELD_CATEGORIES_DESCRIPTION_DESC" hide="article,pagebreak,readmore,phocagallery,phocadownload" filter="safehtml" />
+
+<field name="display_num_doc_cats" type="list" default="1" label="COM_PHOCADOCUMENTATION_FIELD_DISPLAY_NUM_DOC_CATS_VIEW_LABEL" description="COM_PHOCADOCUMENTATION_FIELD_DISPLAY_NUM_DOC_CATS_VIEW_DESC">
+	<option value="1">COM_PHOCADOCUMENTATION_YES</option>
+	<option value="0">COM_PHOCADOCUMENTATION_NO</option>
+</field>
+
+<field name="display_num_doc_cats_header" type="list" default="1" label="COM_PHOCADOCUMENTATION_FIELD_DISPLAY_NUM_DOC_CATS_VIEW_HEADER_LABEL" description="COM_PHOCADOCUMENTATION_FIELD_DISPLAY_NUM_DOC_CATS_VIEW_HEADER_DESC">
+	<option value="1">COM_PHOCADOCUMENTATION_YES</option>
+	<option value="0">COM_PHOCADOCUMENTATION_NO</option>
+</field>
+
+<field name="display_main_cat_desc" type="list" default="0" label="COM_PHOCADOCUMENTATION_FIELD_DISPLAY_MAIN_CAT_DESC_LABEL" description="COM_PHOCADOCUMENTATION_FIELD_DISPLAY_MAIN_CAT_DESC_DESC">
+	<option value="0">COM_PHOCADOCUMENTATION_NO</option>
+	<option value="1">COM_PHOCADOCUMENTATION_YES</option>
+</field>
+
+<field name="display_new" default="0" size="10" type="text" label="COM_PHOCADOCUMENTATION_FIELD_DISPLAY_NEW_ICON_LABEL" description="COM_PHOCADOCUMENTATION_FIELD_DISPLAY_NEW_ICON_DESC" />
+
+<field name="display_hot" default="0" size="10" type="text" label="COM_PHOCADOCUMENTATION_FIELD_DISPLAY_HOT_ICON_LABEL" description="COM_PHOCADOCUMENTATION_FIELD_DISPLAY_HOT_ICON_DESC" />
+
+<field name="display_hot_new_icon" type="list" default="1" label="COM_PHOCADOCUMENTATION_FIELD_DISPLAY_HOT_NEW_ICON_LABEL" description="COM_PHOCADOCUMENTATION_FIELD_DISPLAY_HOT_NEW_ICON_DESC">
+	<option value="0">COM_PHOCADOCUMENTATION_NO</option>
+	<option value="1">COM_PHOCADOCUMENTATION_YES</option>
+</field>
+
+<field name="display_tags" type="list" default="0" label="COM_PHOCADOCUMENTATION_FIELD_DISPLAY_TAGS_LABEL" description="COM_PHOCADOCUMENTATION_FIELD_DISPLAY_TAGS_DESC">
+	<option value="0">COM_PHOCADOCUMENTATION_NO</option>
+	<option value="1">COM_PHOCADOCUMENTATION_YES</option>
+</field>
+<field name="tag_color" type="textarea" label="COM_PHOCADOWNLOAD_FIELD_TAG_COLOR_LABEL" description="COM_PHOCADOWNLOAD_FIELD_TAG_COLOR_DESC" rows="2" cols="26" default="" />
+		
+<field name="most_viewed_docs_num" default="5" size="10" type="text" label="COM_PHOCADOCUMENTATION_FIELD_MOST_VIEWED_DOC_NR_LABEL" description="COM_PHOCADOCUMENTATION_FIELD_MOST_VIEWED_DOC_NR_DESC" />
+		
+<field name="display_up_icon" type="list" default="1" label="COM_PHOCADOCUMENTATION_FIELD_DISPLAY_UP_ICON_LABEL" description="COM_PHOCADOCUMENTATION_FIELD_DISPLAY_UP_ICON_DESC">
+	<option value="1">COM_PHOCADOCUMENTATION_YES</option>
+	<option value="0">COM_PHOCADOCUMENTATION_NO</option>
+</field>
+
+<field name="article_itemid" default="" size="5" type="text" label="COM_PHOCADOCUMENTATION_FIELD_ARTICLE_ITEMID_LABEL" description="COM_PHOCADOCUMENTATION_FIELD_ARTICLE_ITEMID_DESC" />
+	
+	
+<field name="display_categories" type="category" extension="com_content" default="0"  multiple="true" size="10" label="COM_PHOCADOCUMENTATION_FIELD_DISPLAY_CATEGORIES_LABEL" description="COM_PHOCADOCUMENTATION_FIELD_DISPLAY_CATEGORIES_DESC" />
+		
+<field name="hide_categories" type="category" extension="com_content" default="0"  multiple="true" size="10" label="COM_PHOCADOCUMENTATION_FIELD_HIDE_CATEGORIES_LABEL" description="COM_PHOCADOCUMENTATION_FIELD_HIDE_CATEGORIES_DESC" />
+
+<field name="display_empty_categories" type="list" default="0" label="COM_PHOCADOCUMENTATION_FIELD_DISPLAY_EMPTY_CATEGORIES_LABEL" description="COM_PHOCADOCUMENTATION_FIELD_DISPLAY_EMPTY_CATEGORIES_DESC">
+	<option value="0">COM_PHOCADOCUMENTATION_NO</option>
+	<option value="1">COM_PHOCADOCUMENTATION_YES</option>
+	<option value="2">COM_PHOCADOCUMENTATION_YES_EXCEPT_UNCATEGORISED</option>
+</field>
+
+<field name="default_pagination" default="20" size="18" type="text" label="COM_PHOCADOCUMENTATION_FIELD_DEFAULT_VALUE_PAGINATION_LABEL" description="COM_PHOCADOCUMENTATION_FIELD_DEFAULT_VALUE_PAGINATION_DESC" />
+
+<field name="pagination" default="5,10,15,20,50" size="18" type="text" label="COM_PHOCADOCUMENTATION_FIELD_CATEGORY_VIEW_PAGINATION_LABEL" description="COM_PHOCADOCUMENTATION_FIELD_CATEGORY_VIEW_PAGINATION_DESC" />
+
+<field name="theme" type="list" default="phocadocumentation-grey" label="COM_PHOCADOCUMENTATION_FIELD_THEME_LABEL" description="COM_PHOCADOCUMENTATION_FIELD_THEME_DESC">
+		<option value="phocadocumentation-grey">COM_PHOCADOCUMENTATION_GREY</option>
+		<option value="phocadocumentation-transparent">COM_PHOCADOCUMENTATION_TRANSPARENT</option>
+		<option value="phocadocumentation-bootstrap">COM_PHOCADOCUMENTATION_BOOTSTRAP</option>
+	</field>
+	
+<field name="load_boostrap" default="0" type="radio" class="btn-group btn-group-yesno" label="COM_PHOCADOCUMENTATION_FIELD_LOAD_BOOTSTRAP_LABEL" description="COM_PHOCADOCUMENTATION_FIELD_LOAD_BOOTSTRAP_DESC" >
+<option value="0">COM_PHOCADOCUMENTATION_NO</option>
+	<option value="1">COM_PHOCADOCUMENTATION_YES</option>
+</field>
+<field name="equal_height" default="0" type="radio" class="btn-group btn-group-yesno" label="COM_PHOCADOCUMENTATION_FIELD_BOX_EQUAL_HEIGHT_LABEL" description="COM_PHOCADOCUMENTATION_FIELD_BOX_EQUAL_HEIGHT_LABEL" >
+<option value="0">COM_PHOCADOCUMENTATION_NO</option>
+	<option value="1">COM_PHOCADOCUMENTATION_YES</option>
+</field>
+	
+<field name="enable_cache" type="list" default="0" label="COM_PHOCADOCUMENTATION_FIELD_ENABLE_CACHE_LABEL" description="COM_PHOCADOCUMENTATION_FIELD_ENABLE_CACHE_DESC">
+	<option value="1">COM_PHOCADOCUMENTATION_YES</option>
+	<option value="0">COM_PHOCADOCUMENTATION_NO</option>
+</field>
+
+
+<field name="category_ordering" type="list" default="1" label="COM_PHOCADOCUMENTATION_FIELD_CATEGORY_ORDERING_LABEL" description="COM_PHOCADOCUMENTATION_FIELD_CATEGORY_ORDERING_DESC">
+	<option value="1">COM_PHOCADOCUMENTATION_ORDERING_ASC</option>
+	<option value="2">COM_PHOCADOCUMENTATION_ORDERING_DESC</option>
+	<option value="3">COM_PHOCADOCUMENTATION_TITLE_ASC</option>
+	<option value="4">COM_PHOCADOCUMENTATION_TITLE_DESC</option>
+	<option value="5">COM_PHOCADOCUMENTATION_DATE_ASC</option>
+	<option value="6">COM_PHOCADOCUMENTATION_DATE_DESC</option>
+	<option value="7">COM_PHOCADOCUMENTATION_ID_ASC</option>
+	<option value="8">COM_PHOCADOCUMENTATION_ID_DESC</option>
+</field>
+
+<field name="article_ordering" type="list" default="1" label="COM_PHOCADOCUMENTATION_FIELD_ARTICLE_ORDERING_LABEL" description="COM_PHOCADOCUMENTATION_FIELD_ARTICLE_ORDERING_DESC">
+	<option value="1">COM_PHOCADOCUMENTATION_ORDERING_ASC</option>
+	<option value="2">COM_PHOCADOCUMENTATION_ORDERING_DESC</option>
+	<option value="3">COM_PHOCADOCUMENTATION_TITLE_ASC</option>
+	<option value="4">COM_PHOCADOCUMENTATION_TITLE_DESC</option>
+	<option value="5">COM_PHOCADOCUMENTATION_DATE_ASC</option>
+	<option value="6">COM_PHOCADOCUMENTATION_DATE_DESC</option>
+	<option value="7">COM_PHOCADOCUMENTATION_ID_ASC</option>
+	<option value="8">COM_PHOCADOCUMENTATION_ID_DESC</option>
+</field>
+
+		</fieldset>
+	</fields>
+</config>
