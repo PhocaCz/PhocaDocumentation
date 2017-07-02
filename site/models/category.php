@@ -34,14 +34,14 @@ class PhocaDocumentationModelCategory extends JModelLegacy
 		
 		// Get the pagination request variables
 		$this->setState('limit', $app->getUserStateFromRequest('com_phocadocumentation.limit', 'limit', $defaultPagination, 'int'));
-		$this->setState('limitstart', JRequest::getVar('limitstart', 0, '', 'int'));
+		$this->setState('limitstart',  $app->input->get('limitstart', 0, 'int'));
 
 		// In case limit has been changed, adjust limitstart accordingly
 		$this->setState('limitstart', ($this->getState('limit') != 0 ? (floor($this->getState('limitstart') / $this->getState('limit')) * $this->getState('limit')) : 0));
 
 		// Get the filter request variables
-		$this->setState('filter_order', JRequest::getCmd('filter_order', 'ordering'));
-		$this->setState('filter_order_dir', JRequest::getCmd('filter_order_Dir', 'ASC'));
+		$this->setState('filter_order', JFactory::getApplication()->input->get('filter_order', 'ordering'));
+		$this->setState('filter_order_dir', JFactory::getApplication()->input->get('filter_order_Dir', 'ASC'));
 		
 	}
 	
@@ -94,6 +94,7 @@ class PhocaDocumentationModelCategory extends JModelLegacy
 		$userLevels	= implode (',', $user->getAuthorisedViewLevels());
 		
 		$wheres[]	= ' c.catid= '.(int)$categoryId;
+
 		
 		$wheres[] = ' c.state = 1';
 		$wheres[] = ' cc.published = 1';

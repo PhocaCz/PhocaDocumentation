@@ -27,11 +27,11 @@ class PhocaDocumentationUtils
 	}
 	
 	public static function getExtensionVersion($c = 'phocadocumentation') {
-		$folder = JPATH_ADMINISTRATOR .DS. 'components'.DS.'com_'.$c;
+		$folder = JPATH_ADMINISTRATOR .'components/com_'.$c;
 		if (JFolder::exists($folder)) {
 			$xmlFilesInDir = JFolder::files($folder, '.xml$');
 		} else {
-			$folder = JPATH_SITE .DS. 'components'.DS.'com_'.$c;
+			$folder = JPATH_SITE . 'components/com_'.$c;
 			if (JFolder::exists($folder)) {
 				$xmlFilesInDir = JFolder::files($folder, '.xml$');
 			} else {
@@ -39,12 +39,12 @@ class PhocaDocumentationUtils
 			}
 		}
 
-		$xml_items = '';
+		$xml_items = array();
 		if (count($xmlFilesInDir))
 		{
 			foreach ($xmlFilesInDir as $xmlfile)
 			{
-				if ($data = JApplicationHelper::parseXMLInstallFile($folder.DS.$xmlfile)) {
+				if ($data = JApplicationHelper::parseXMLInstallFile($folder.'/'.$xmlfile)) {
 					foreach($data as $key => $value) {
 						$xml_items[$key] = $value;
 					}

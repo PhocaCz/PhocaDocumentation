@@ -32,7 +32,8 @@ class PhocaDocumentationHelperRoute
 	public static function getArticleRoute($id, $alias, $catid, $catalias, $itemid = 0) {
 	
 		$app			= JFactory::getApplication();
-		$params 		= $app->getParams();
+		//$params 		= $app->getParams();
+		$params 		= JComponentHelper::getParams('com_phocadocumentation');
 		$articleItemid	= $params->get( 'article_itemid', 0 );
 	
 		$link = 'index.php?option=com_content&view=article&catid='.$catid.':'.$catalias.'&id='.$id.':'.$alias;
@@ -43,7 +44,7 @@ class PhocaDocumentationHelperRoute
 		} else if ((int)$articleItemid > 0 ) {
 			$link .= '&Itemid='.(int)$articleItemid;
 		} else {
-			//$link .= '&Itemid='.JRequest::getVar('Itemid', 0, '', 'int');
+			//$link .= '&Itemid='.J Request::getVar('Itemid', 0, '', 'int');
 		}
 		
 		return $link;
@@ -135,8 +136,7 @@ class PhocaDocumentationHelperRoute
 		$items	= $menus->getItems('component', 'com_phocadocumentation');
 
 		if(!$items) {
-			return JRequest::getVar('Itemid', 0, '', 'int');
-			//return null;
+			return $app->input->get('Itemid', 0, '', 'int');
 		}
 		
 		$match = null;

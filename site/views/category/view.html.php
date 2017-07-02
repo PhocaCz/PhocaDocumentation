@@ -30,8 +30,8 @@ class PhocaDocumentationViewCategory extends JViewLegacy
 		$this->uri 			= str_replace('&amp;', '&', $this->uri);
 		$this->uri 			= str_replace('&', '&amp;', $this->uri);
 		$model				= $this->getModel();
-		$this->categoryId	= JRequest::getVar( 'id', 0, '', 'int' );
-		$limitStart			= JRequest::getVar( 'limitstart', 0, '', 'int' );
+		$this->categoryId	= $app->input->get( 'id', 0, 'int' );
+		$limitStart			= $app->input->get( 'limitstart', 0, 'int' );
 		
 		$this->category				= $model->getCategory($this->categoryId);
 		$this->subcategories		= $model->getSubcategories($this->categoryId);
@@ -74,9 +74,9 @@ class PhocaDocumentationViewCategory extends JViewLegacy
 			JHtml::_('jquery.framework', false);
 			$document->addScript(JURI::root(true).'/media/com_phocadocumentation/js/jquery.equalheights.min.js');
 			$document->addScriptDeclaration(
-			'jQuery(document).ready(function(){
-				jQuery(\'.ph-thumbnail\').equalHeights();
-			});');
+				'jQuery(window).load(function(){
+					jQuery(\'.ph-thumbnail\').equalHeights();
+				});');
 		}
 		JHTML::stylesheet('media/com_phocadocumentation/css/'.$css.'.css' );
 		

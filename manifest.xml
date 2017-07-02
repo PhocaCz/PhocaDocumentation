@@ -1,0 +1,23 @@
+<updates>
+	<update>
+		<name><![CDATA[ Phoca Documentation ]]></name>
+		<description><![CDATA[ Phoca Documentation is Joomla! CMS component. It displays Joomla's articles and categories as a documentation site, for example as a User Manual, User guide, Help site, etc. ]]></description>
+		<element>com_phocadocumentation</element>
+		<type>component</type>
+		<version>3.0.2</version>
+		<infourl title="Phoca Documentation 3.0.2">http://www.phoca.cz/version/index.php?phocadocumentation=3.0.2</infourl>
+		<downloads>
+			<downloadurl type="full" format="zip">https://github.com/PhocaCz/PhocaDocumentation/releases/download/3.0.2/com_phocadocumentation_v3.0.2.zip</downloadurl>
+		</downloads>
+		<tags>
+			<tag>stable</tag>
+		</tags>
+		<maintainer>
+		<![CDATA[ Phoca.cz ]]>
+		</maintainer>
+		<maintainerurl>https://www.phoca.cz/</maintainerurl>
+		<section>Updates</section>
+		<targetplatform name="joomla" version="3.7"/>
+		<client>1</client>
+	</update>
+</updates>

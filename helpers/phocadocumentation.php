@@ -8,6 +8,7 @@
  * @copyright Copyright (C) Jan Pavelka www.phoca.cz
  * @license http://www.gnu.org/copyleft/gpl.html GNU/GPL
  */
+defined('_JEXEC') or die();
 jimport('joomla.application.component.controller');
 
 
@@ -19,11 +20,11 @@ class PhocaDocumentationHelper
 	 */
 	public static function getPhocaVersion()
 	{
-		$folder = JPATH_ADMINISTRATOR .DS. 'components'.DS.'com_phocadocumentation';
+		$folder = JPATH_ADMINISTRATOR . '/components/com_phocadocumentation';
 		if (JFolder::exists($folder)) {
 			$xmlFilesInDir = JFolder::files($folder, '.xml$');
 		} else {
-			$folder = JPATH_SITE .DS. 'components'.DS.'com_phocadocumentation';
+			$folder = JPATH_SITE . '/components/com_phocadocumentation';
 			if (JFolder::exists($folder)) {
 				$xmlFilesInDir = JFolder::files($folder, '.xml$');
 			} else {
@@ -31,12 +32,12 @@ class PhocaDocumentationHelper
 			}
 		}
 
-		$xml_items = '';
+		$xml_items = array();
 		if (count($xmlFilesInDir))
 		{
 			foreach ($xmlFilesInDir as $xmlfile)
 			{
-				if ($data = JApplicationHelper::parseXMLInstallFile($folder.DS.$xmlfile)) {
+				if ($data = JApplicationHelper::parseXMLInstallFile($folder.'/'.$xmlfile)) {
 					foreach($data as $key => $value) {
 						$xml_items[$key] = $value;
 					}

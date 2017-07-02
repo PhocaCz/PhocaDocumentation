@@ -6,7 +6,7 @@
 		<field name="phocahead1" type="phocahead"  default="COM_PHOCADOCUMENTATION_CONFIG_GENERAL_SETTINGS_LABEL" label="" description=""/>
 		
 
-<field name="cat_desc" default="" type="editor" label="COM_PHOCAPDF_FIELD_CATEGORIES_DESCRIPTION_LABEL" description="COM_PHOCAPDF_FIELD_CATEGORIES_DESCRIPTION_DESC" hide="article,pagebreak,readmore,phocagallery,phocadownload" filter="safehtml" />
+<field name="cat_desc" default="" type="editor" label="COM_PHOCAPDF_FIELD_CATEGORIES_DESCRIPTION_LABEL" description="COM_PHOCAPDF_FIELD_CATEGORIES_DESCRIPTION_DESC" hide="article,pagebreak,readmore,phocagallery,phocadownload" filter="JComponentHelper::filterText" />
 
 <field name="display_num_doc_cats" type="list" default="1" label="COM_PHOCADOCUMENTATION_FIELD_DISPLAY_NUM_DOC_CATS_VIEW_LABEL" description="COM_PHOCADOCUMENTATION_FIELD_DISPLAY_NUM_DOC_CATS_VIEW_DESC">
 	<option value="1">COM_PHOCADOCUMENTATION_YES</option>

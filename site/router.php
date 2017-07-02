@@ -13,6 +13,7 @@
  * Method to build Route
  * @param array $query
  */ 
+defined('_JEXEC') or die();
 function PhocaDocumentationBuildRoute(&$query)
 {
 	

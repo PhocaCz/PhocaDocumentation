@@ -6,6 +6,7 @@
  * @copyright Copyright (C) Jan Pavelka www.phoca.cz
  * @license http://www.gnu.org/copyleft/gpl.html GNU/GPL
  */
+defined('_JEXEC') or die();
 class PhocaDocumentationNavigation
 {
 	private static $doc = false;
@@ -112,16 +113,18 @@ class PhocaDocumentationNavigation
 	}
 	
 	
+	
 	public final function __clone() {
-		JError::raiseWarning(500, 'Function Error: Cannot clone instance of Singleton pattern');// No JText - for developers only
+		throw new Exception('Function Error: Cannot clone instance of Singleton pattern', 500);
 		return false;
 	}
 	
 	
 	
 	public static function getPrevOutput($d, $oL, $itemId, $bts = 0) {
+		$t		= JText::_('PLG_CONTENT_PHOCADOCUMENTATIONNAVIGATION_PREVIOUS');
 		if (!empty($d)) {
-			$t		= JText::_('PLG_CONTENT_PHOCADOCUMENTATIONNAVIGATION_PREVIOUS');
+	
 			$img	= JHTML::_('image', 'media/com_phocadocumentation/images/prev.png', $t);
 			
 			if ($bts == 1) {$img = '<span class="glyphicon glyphicon-chevron-left ph-icon-arrow"></span>';}
@@ -138,8 +141,9 @@ class PhocaDocumentationNavigation
 	}
 	
 	public static function getNextOutput($d, $oL, $itemId, $bts = 0) {
+		$t		= JText::_('PLG_CONTENT_PHOCADOCUMENTATIONNAVIGATION_NEXT');
 		if (!empty($d)) {
-			$t		= JText::_('PLG_CONTENT_PHOCADOCUMENTATIONNAVIGATION_NEXT');
+			
 			$img	= JHTML::_('image', 'media/com_phocadocumentation/images/next.png', $t);
 			
 			if ($bts == 1) {$img = '<span class="glyphicon glyphicon-chevron-right ph-icon-arrow"></span>';}
@@ -156,13 +160,14 @@ class PhocaDocumentationNavigation
 	}
 	
 	public static function getTopOutput($d, $oL, $topId, $itemId, $bts = 0) {
+		$t		= JText::_('PLG_CONTENT_PHOCADOCUMENTATIONNAVIGATION_TOP');
 		if (!empty($d)) {
 			
 			if ($topId == '') {
 				$topId = 'pdoc-top';// go to main navigation instead of top site
 			}
 		
-			$t		= JText::_('PLG_CONTENT_PHOCADOCUMENTATIONNAVIGATION_TOP');
+			
 			$img	= JHTML::_('image', 'media/com_phocadocumentation/images/up.png', $t);
 			
 			if ($bts == 1) {$img = '<span class="glyphicon glyphicon-chevron-up ph-icon-arrow"></span>';}

@@ -31,7 +31,7 @@ class PhocaDocumentationCpViewPhocaDocumentationcp extends JViewLegacy
 	}
 	
 	protected function addToolbar() {
-		require_once JPATH_COMPONENT.DS.'helpers'.DS.'phocadocumentationcp.php';
+		require_once JPATH_COMPONENT.'/helpers/phocadocumentationcp.php';
 
 		$state	= $this->get('State');
 		$canDo	= PhocaDocumentationCpHelper::getActions($this->t);

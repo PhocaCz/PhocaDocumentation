@@ -54,10 +54,12 @@ class PhocaDocumentationViewCategories extends JViewLegacy
 		if ($this->tmpl['equal_height'] == 1) {
 			JHtml::_('jquery.framework', false);
 			$document->addScript(JURI::root(true).'/media/com_phocadocumentation/js/jquery.equalheights.min.js');
+			
+			
 			$document->addScriptDeclaration(
-			'jQuery(document).ready(function(){
-				jQuery(\'.ph-thumbnail\').equalHeights();
-			});');
+				'jQuery(window).load(function(){
+					jQuery(\'.ph-thumbnail\').equalHeights();
+				});');
 		}
 		JHTML::stylesheet('media/com_phocadocumentation/css/'.$css.'.css' );
 		

@@ -8,6 +8,7 @@
  * @copyright Copyright (C) Jan Pavelka www.phoca.cz
  * @license http://www.gnu.org/copyleft/gpl.html GNU/GPL
  */
+defined('_JEXEC') or die();
 jimport('joomla.application.component.controller');
 jimport( 'joomla.filesystem.folder' ); 
 jimport( 'joomla.filesystem.file' );
@@ -31,11 +32,13 @@ class PhocaDocumentationHelperFront
 			break;
 			
 			case 5:
-				$orderingOutput	= 'date ASC';
+				//$orderingOutput	= 'date ASC';
+				$orderingOutput	= 'created ASC';
 			break;
 			
 			case 6:
-				$orderingOutput	= 'date DESC';
+				//$orderingOutput	= 'date DESC';
+				$orderingOutput	= 'created DESC';
 			break;
 			
 			case 7:
