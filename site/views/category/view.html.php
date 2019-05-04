@@ -19,20 +19,20 @@ class PhocaDocumentationViewCategory extends JViewLegacy
 	protected $tmpl;
 	protected $params;
 	protected $uri;
-	
-	function display($tpl = null) {		
-		
+
+	function display($tpl = null) {
+
 		$document			= JFactory::getDocument();
 		$app				= JFactory::getApplication();
-		$uri 				= JFactory::getURI();
+		$uri 				= \Joomla\CMS\Uri\Uri::getInstance();
 		$this->params 		= $app->getParams();
-		$this->uri 			= JFactory::getURI()->toString();
+		$this->uri 			= \Joomla\CMS\Uri\Uri::getInstance()->toString();
 		$this->uri 			= str_replace('&amp;', '&', $this->uri);
 		$this->uri 			= str_replace('&', '&amp;', $this->uri);
 		$model				= $this->getModel();
 		$this->categoryId	= $app->input->get( 'id', 0, 'int' );
 		$limitStart			= $app->input->get( 'limitstart', 0, 'int' );
-		
+
 		$this->category				= $model->getCategory($this->categoryId);
 		$this->subcategories		= $model->getSubcategories($this->categoryId);
 		$this->articles				= $model->getArticleList($this->categoryId);
@@ -56,47 +56,51 @@ class PhocaDocumentationViewCategory extends JViewLegacy
 		if(!empty($this->tmpl['tag_color'])) {
 			$this->tmpl['tag_color_array']	= json_decode($this->tmpl['tag_color'], true);
 		}
-		
-		$this->tmpl['pddc']					= PhocaDocumentationHelper::getPhocaId($this->params->get( 'display_id', 1 ));
+
+		$this->tmpl['pddc']					= PhocaDocumentationHelper::getInfo();
 		$this->tmpl['action']				= $uri->toString();
-		
-		
+
+
 		// THEME, CSS, BOOTSTRAP
 		$css								= $this->params->get( 'theme', 'phocadocumentation-grey' );
 		$this->tmpl['load_bootstrap']		= $this->params->get( 'load_bootstrap', 0 );
 		$this->tmpl['equal_height']			= $this->params->get( 'equal_height', 0 );
-		
+
 		if ($this->tmpl['load_bootstrap'] == 1) {
 			JHTML::stylesheet('media/com_phocadocumentation/bootstrap/css/bootstrap.min.css' );
 			$document->addScript(JURI::root(true).'/media/com_phocadocumentation/bootstrap/js/bootstrap.min.js');
 		}
 		if ($this->tmpl['equal_height'] == 1) {
-			JHtml::_('jquery.framework', false);
+			/*
+			 * Done by CSS - flexbox
+
+		    JHtml::_('jquery.framework', false);
 			$document->addScript(JURI::root(true).'/media/com_phocadocumentation/js/jquery.equalheights.min.js');
 			$document->addScriptDeclaration(
 				'jQuery(window).load(function(){
 					jQuery(\'.ph-thumbnail\').equalHeights();
 				});');
+			*/
 		}
 		JHTML::stylesheet('media/com_phocadocumentation/css/'.$css.'.css' );
-		
+
 
 		$this->_prepareDocument();
 		if ($css == 'phocadocumentation-bootstrap') {
-			parent::display('bootstrap');	
+			parent::display('bootstrap');
 		} else {
-			parent::display($tpl);	
+			parent::display($tpl);
 		}
-		
+
 	}
-	
+
 	protected function _prepareDocument() {
-		
+
 		$app		= JFactory::getApplication();
 		$menus		= $app->getMenu();
 		$pathway 	= $app->getPathway();
 		$title 		= null;
-		
+
 		$menu = $menus->getActive();
 		if ($menu) {
 			$this->params->def('page_heading', $this->params->get('page_title', $menu->title));
@@ -106,9 +110,9 @@ class PhocaDocumentationViewCategory extends JViewLegacy
 
 		$title = $this->params->get('page_title', '');
 		if (empty($title)) {
-			$title = htmlspecialchars_decode($app->getCfg('sitename'));
-		} else if ($app->getCfg('sitename_pagetitles', 0)) {
-			$title = JText::sprintf('JPAGETITLE', htmlspecialchars_decode($app->getCfg('sitename')), $title);
+			$title = htmlspecialchars_decode($app->get('sitename'));
+		} else if ($app->get('sitename_pagetitles', 0)) {
+			$title = JText::sprintf('JPAGETITLE', htmlspecialchars_decode($app->get('sitename')), $title);
 		}
 		$this->document->setTitle($title);
 
@@ -124,11 +128,11 @@ class PhocaDocumentationViewCategory extends JViewLegacy
 			$this->document->setMetadata('keywords', $this->params->get('menu-meta_keywords', ''));
 		}
 
-		if ($app->getCfg('MetaTitle') == '1' && $this->params->get('menupage_title', '')) {
+		if ($app->get('MetaTitle') == '1' && $this->params->get('menupage_title', '')) {
 			$this->document->setMetaData('title', $this->params->get('page_title', ''));
 		}
 
-		/*if ($app->getCfg('MetaAuthor') == '1') {
+		/*if ($app->get('MetaAuthor') == '1') {
 			$this->document->setMetaData('author', $this->item->author);
 		}
 
@@ -138,7 +142,7 @@ class PhocaDocumentationViewCategory extends JViewLegacy
 				$this->document->setMetadata($k, $v);
 			}
 		}*/
-		
+
 		// Breadcrumbs TODO (Add the whole tree)
 		if (isset($this->category[0]->parentid)) {
 			if ($this->category[0]->parentid == 1) {

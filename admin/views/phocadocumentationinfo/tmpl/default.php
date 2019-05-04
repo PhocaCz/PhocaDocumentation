@@ -2,11 +2,11 @@
 
 echo '<form action="index.php" method="post" name="adminForm" id="'.$this->t['c'].'info-form">';
 echo '<div id="j-sidebar-container" class="span2">'.JHtmlSidebar::render().'</div>';
-echo '<div id="j-main-container" class="span9">'
+echo '<div id="j-main-container" class="span10">'
 	.'<div style="float:right;margin:10px;">'
 	. JHTML::_('image', $this->t['i'] . 'logo-phoca.png', 'Phoca.cz' )
 	.'</div>'
-	. JHTML::_('image', $this->t['i'] . 'logo.png', 'Phoca.cz')
+    .'<div class="ph-cpanel-logo">'.JHtml::_('image', 'media/com_phocadocumentation/images/administrator/logo-phoca-documentation.png', 'Phoca.cz') . '</div>'
 	.'<h3>'.JText::_($this->t['l'].'_PHOCA_DOCUMENTATION').' - '. JText::_($this->t['l'].'_INFORMATION').'</h3>'
 	.'<div style="clear:both;"></div>';
 
@@ -36,6 +36,7 @@ echo '<input type="hidden" name="task" value="" />'
 .'<input type="hidden" name="option" value="'.$this->t['o'].'" />'
 .'<input type="hidden" name="controller" value="'.$this->t['c'].'info" />';
 
+echo JHTML::_('image', $this->t['i'] . 'logo.png', 'Phoca.cz');
 echo '<p>&nbsp;</p>';
 
 echo '<div style="border-top:1px solid #eee"></div><p>&nbsp;</p>'
@@ -45,7 +46,7 @@ echo '<div style="border-top:1px solid #eee"></div><p>&nbsp;</p>'
 echo '<div style="margin-top:30px;height:39px;background: url(\''.JURI::root(true).'/media/com_'.$this->t['c'].'/images/administrator/line.png\') 100% 0 no-repeat;">&nbsp;</div>';
 
 echo '</div>';
-echo '<div class="span1"></div>';
+//echo '<div class="span1"></div>';
 
 echo '</div>';
 echo '</form>';

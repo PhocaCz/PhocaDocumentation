@@ -33,25 +33,38 @@ class PhocaDocumentationHelper
 		}
 
 		$xml_items = array();
-		if (count($xmlFilesInDir))
+		if (!empty($xmlFilesInDir))
 		{
 			foreach ($xmlFilesInDir as $xmlfile)
 			{
-				if ($data = JApplicationHelper::parseXMLInstallFile($folder.'/'.$xmlfile)) {
+				if ($data = \JInstaller::parseXMLInstallFile($folder.'/'.$xmlfile)) {
 					foreach($data as $key => $value) {
 						$xml_items[$key] = $value;
 					}
 				}
 			}
 		}
-	
+
 		if (isset($xml_items['version']) && $xml_items['version'] != '' ) {
 			return $xml_items['version'];
 		} else {
 			return '';
 		}
 	}
-	
+
+    public static function getInfo() {
+
+        JPluginHelper::importPlugin('phocatools');
+        $results = \JFactory::getApplication()->triggerEvent('PhocatoolsOnDisplayInfo', array('NjI5NTcyNzcxNw=='));
+        if (isset($results[0]) && $results[0] === true) {
+            return '';
+        }
+
+        return '<p>&nbsp;</p><div style="text-align:right">Powered by <a href="https://www.phoca.cz/phocadocumentation">Phoca Documentation</a></div>';
+
+    }
+
+    /*
 	public static function getPhocaId($id){
 		$v	= PhocaDocumentationHelper::getPhocaVersion();
 		$i	= str_replace('.', '',substr($v, 0, 3));
@@ -68,7 +81,7 @@ class PhocaDocumentationHelper
 			$output		.= $n;
 			$output		.= '<div '.$s2.'>';
 		}
-		
+
 		if ($id == $i) {
 			$output	.= '<!-- <a href="'.$l.'">site: www.phoca.cz | version: '.$v.'</a> -->';
 		} else {
@@ -78,19 +91,19 @@ class PhocaDocumentationHelper
 			$output		.= '</div>' . $n;
 		}
 		return $output;
-	}
-	
+	}*/
+
 	public static function displayNewIcon ($date, $time = 0, $icon = 1) {
-		
+
 		if ($time == 0) {
 			return '';
 		}
-		
+
 		$dateAdded 	= strtotime($date, time());
 		$dateToday 	= time();
 		$dateExists = $dateToday - $dateAdded;
 		$dateNew	= $time * 24 * 60 * 60;
-		
+
 		if ($dateExists < $dateNew) {
 			if ($icon == 1) {
 				return '&nbsp;'. JHTML::_('image', 'media/com_phocadocumentation/images/icon-new.png', JText::_('COM_PHOCADOCUMENTATION_NEW'));
@@ -100,15 +113,15 @@ class PhocaDocumentationHelper
 		} else {
 			return '';
 		}
-	
+
 	}
-	
+
 	public static function displayHotIcon ($hits, $requiredHits = 0, $icon = 1) {
-		
+
 		if ($requiredHits == 0) {
 			return '';
 		}
-		
+
 		if ($requiredHits <= $hits) {
 			if ($icon == 1) {
 				return '&nbsp;'. JHTML::_('image', 'media/com_phocadocumentation/images/icon-hot.png',JText::_('COM_PHOCADOCUMENTATION_HOT'));
@@ -118,8 +131,8 @@ class PhocaDocumentationHelper
 		} else {
 			return '';
 		}
-	
+
 	}
-	
+
 }
 ?>

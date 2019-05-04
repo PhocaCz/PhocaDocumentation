@@ -28,35 +28,35 @@ jimport('joomla.application.component.helper');
  */
 class PhocaDocumentationHelperRoute
 {
-	
+
 	public static function getArticleRoute($id, $alias, $catid, $catalias, $itemid = 0) {
-	
+
 		$app			= JFactory::getApplication();
 		//$params 		= $app->getParams();
 		$params 		= JComponentHelper::getParams('com_phocadocumentation');
 		$articleItemid	= $params->get( 'article_itemid', 0 );
-	
+
 		$link = 'index.php?option=com_content&view=article&catid='.$catid.':'.$catalias.'&id='.$id.':'.$alias;
 
-		
+
 		if ((int)$itemid > 0) {
 			$link .= '&Itemid='.(int)$itemid;
 		} else if ((int)$articleItemid > 0 ) {
 			$link .= '&Itemid='.(int)$articleItemid;
 		} else {
-			//$link .= '&Itemid='.J Request::getVar('Itemid', 0, '', 'int');
+			//$link .= '&Itemid='.$app->input->get('Itemid', 0, 'int');
 		}
-		
+
 		return $link;
 	}
-	
+
 	public static function getCategoryRoute($catid, $catidAlias = '')
 	{
 		$needles = array(
 			'category' => (int) $catid,
 			'categories' => ''
 		);
-		
+
 		if ($catidAlias != '') {
 			$catid = $catid . ':' . $catidAlias;
 		}
@@ -92,7 +92,7 @@ class PhocaDocumentationHelperRoute
 			'section' => (int) $sectionid,
 			'sections' => ''
 		);
-		
+
 		if ($sectionidAlias != '') {
 			$sectionid = $sectionid . ':' . $sectionidAlias;
 		}
@@ -109,13 +109,13 @@ class PhocaDocumentationHelperRoute
 
 		return $link;
 	}
-	
+
 	function getSectionsRoute()
 	{
 		$needles = array(
 			'sections' => ''
 		);
-		
+
 		//Create the link
 		$link = 'index.php?option=com_phocadocumentation&view=sections';
 
@@ -138,9 +138,9 @@ class PhocaDocumentationHelperRoute
 		if(!$items) {
 			return $app->input->get('Itemid', 0, '', 'int');
 		}
-		
+
 		$match = null;
-		
+
 
 		foreach($needles as $needle => $id)
 		{
@@ -148,10 +148,10 @@ class PhocaDocumentationHelperRoute
 				// if root category - ignore it and make the link to all categories
 				return false;
 			}
-			
+
 			if ($notCheckId == 0) {
 				foreach($items as $item) {
-					
+
 					if ((@$item->query['view'] == $needle) && (@$item->query['id'] == $id)) {
 						$match = $item;
 						break;
@@ -159,7 +159,7 @@ class PhocaDocumentationHelperRoute
 				}
 			} else {
 				foreach($items as $item) {
-					
+
 					if (@$item->query['view'] == $needle) {
 						$match = $item;
 						break;

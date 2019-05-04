@@ -1,0 +1,48 @@
+{
+	"author": "Jan Pavelka (www.phoca.cz)",
+	"authorUrl": "https://www.phoca.cz",
+	"copyright": "Jan Pavelka",
+	"license": "GNU/GPL",
+	"projectName": "phocadocumentation",
+	"extensionName": "Phoca Documentation",
+	"projectInitials" : "PD",
+	"description": "Phoca Documentation is Joomla! CMS component. It displays Joomla's articles and categories as a documentation site, e.g. as User Manual, User guide, Help, etc.",
+	"projectUrl": "https://www.phoca.cz/phocadocumentation",
+	"projectDocumentationUrl": "https://www.phoca.cz/documentation/category/6-phoca-documentation-component",
+	"projectMainComponent": "Phoca Documentation",
+	"projectMainComponentInfoUrl": "https://www.phoca.cz/project/phocadocumentation-joomla-download",
+	"projectDemo" : {
+		"Joomla! 3 Demo": "https://www.phoca.cz/documentation"
+	},
+	"projectColor": "#0099ff",
+	"menu": {
+		"main":{
+			"0" : {
+				"image": "icon-16-pdoc-menu.png",
+				"view": "",
+				"link": "option=com_phocadocumentation",
+				"title": "COM_PHOCADOCUMENTATION"
+			}
+		},
+		"submenu": {
+			"0" : {
+				"image": "icon-16-pdoc-control-panel.png",
+				"view": "phocadocumentationcp",
+				"link": "option=com_phocadocumentation",
+				"title": "COM_PHOCADOCUMENTATION_CONTROLPANEL"
+			},
+			"1" : {
+				"image": "icon-16-pdoc-cat.png",
+				"view": "categories",
+				"link": "option=com_categories&amp;extension=com_content",
+				"title": "COM_PHOCADOCUMENTATION_CATEGORIES"
+			},
+			"2" : {
+				"image": "icon-16-pdoc-info.png",
+				"view": "phocadocumentationinfo",
+				"link": "option=com_phocadocumentation&amp;view=phocadocumentationinfo",
+				"title": "COM_PHOCADOCUMENTATION_INFO"
+			}
+		}
+	}
+}

@@ -10,7 +10,7 @@ defined( '_JEXEC' ) or die( 'Restricted access' );
 class PhocaDocumentationUtils
 {
 	public static function setVars( $task = '') {
-	
+
 		$a			= array();
 		$app		= JFactory::getApplication();
 		$a['o'] 	= htmlspecialchars(strip_tags($app->input->get('option')));
@@ -25,7 +25,7 @@ class PhocaDocumentationUtils
 		$a['tasks'] = $a['task']. 's';
 		return $a;
 	}
-	
+
 	public static function getExtensionVersion($c = 'phocadocumentation') {
 		$folder = JPATH_ADMINISTRATOR .'components/com_'.$c;
 		if (JFolder::exists($folder)) {
@@ -40,18 +40,18 @@ class PhocaDocumentationUtils
 		}
 
 		$xml_items = array();
-		if (count($xmlFilesInDir))
+		if (!empty($xmlFilesInDir))
 		{
 			foreach ($xmlFilesInDir as $xmlfile)
 			{
-				if ($data = JApplicationHelper::parseXMLInstallFile($folder.'/'.$xmlfile)) {
+				if ($data = \JInstaller::parseXMLInstallFile($folder.'/'.$xmlfile)) {
 					foreach($data as $key => $value) {
 						$xml_items[$key] = $value;
 					}
 				}
 			}
 		}
-		
+
 		if (isset($xml_items['version']) && $xml_items['version'] != '' ) {
 			return $xml_items['version'];
 		} else {

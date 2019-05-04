@@ -7,7 +7,6 @@
  * @license http://www.gnu.org/copyleft/gpl.html GNU/GPL
  */
 defined('_JEXEC') or die;
-if(!defined('DS')) define('DS', DIRECTORY_SEPARATOR);
 jimport('joomla.filesystem.folder');
 require_once( JPATH_COMPONENT.'/controller.php' );
 require_once( JPATH_COMPONENT.'/helpers/phocadocumentationcp.php' );
@@ -18,6 +17,6 @@ require_once( JPATH_COMPONENT.'/helpers/renderadminview.php' );
 require_once( JPATH_COMPONENT.'/helpers/renderadminviews.php' );
 jimport('joomla.application.component.controller');
 $controller	= JControllerLegacy::getInstance('PhocaDocumentationCp');
-$controller->execute(JFactory::getApplication()->input->get('task')); 
+$controller->execute(JFactory::getApplication()->input->get('task'));
 $controller->redirect();
 ?>

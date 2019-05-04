@@ -16,7 +16,7 @@ foreach ($this->views as $k => $v) {
 	} else {
 		$linkV	= $link . $this->t['c'] . $k;
 	}
-	
+
 	echo $class::quickIconButton( $linkV, 'icon-48-'.$k.'.png', JText::_($v), $this->t['i']);
 }
 				?><div style="clear:both">&nbsp;</div>
@@ -27,9 +27,10 @@ foreach ($this->views as $k => $v) {
 				</div>
 			</div>
 		</div>
-	
+
 		<div class="ph-cpanel-right">
 			<div class="well">
+                <?php echo '<div class="ph-cpanel-logo">'.JHtml::_('image', 'media/com_phocadocumentation/images/administrator/logo-phoca-documentation.png', 'Phoca.cz') . '</div>'; ?>
 				<div style="float:right;margin:10px;"><?php echo JHTML::_('image', $this->t['i'] . 'logo-phoca.png', 'Phoca.cz' );?></div><?php
 echo '<h3>'.  JText::_($this->t['l'] . '_VERSION').'</h3>'
 .'<p>'.  $this->t['version'] .'</p>';
@@ -45,8 +46,8 @@ echo '<h3>'.  JText::_($this->t['l'] . '_TRANSLATION').': '. JText::_($this->t['
 .'<div class="btn-group"><a class="btn btn-large btn-primary" href="https://www.phoca.cz/version/index.php?'.$this->t['c'].'='.  $this->t['version'] .'" target="_blank"><i class="icon-loop icon-white"></i>&nbsp;&nbsp;'.  JText::_($this->t['l'] . '_CHECK_FOR_UPDATE') .'</a></div>'
 .'<div style="float:right; margin: 0 10px">'.JHTML::_('image', $this->t['i'] . 'logo.png', 'Phoca.cz' ).'</div>';
 
-	
-	
+
+
 			?></div>
 		</div>
 	</div>
