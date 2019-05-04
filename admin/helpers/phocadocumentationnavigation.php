@@ -44,21 +44,26 @@ class PhocaDocumentationNavigation
 			$wheres[] = ' ( c.publish_down = '.$db->Quote($nullDate).' OR c.publish_down >= '.$db->Quote($now).' )';
 
 
-			$query = ' SELECT c.id, c.title, c.alias, c.catid, cc.id AS categoryid, cc.title AS categorytitle, cc.alias AS categoryalias, cc.access as cataccess,'
-					.' MIN(n.id) AS nextid, MIN(n.title) AS nexttitle, MIN(n.alias) AS nextalias,'
-					.' MAX(p.id) AS previd, MAX(p.title) AS prevtitle, MAX(p.alias) AS prevalias'
-					.' FROM #__content AS c'
-					.' LEFT JOIN #__categories AS cc ON cc.id = c.catid'
-					.' LEFT JOIN #__content AS n ON cc.id = n.catid AND n.ordering > c.ordering'
-					.' LEFT JOIN #__content AS p ON cc.id = p.catid AND p.ordering < c.ordering'
-					. ' WHERE ' . implode( ' AND ', $wheres )
-                    . ' GROUP BY c.id, c.title, c.alias, c.catid'
-                    . ' ORDER BY c.'.$articleOrdering;
+			$query = ' SELECT c.id, c.title, c.alias, c.catid, c.ordering, cc.id AS categoryid, cc.title AS categorytitle, cc.alias AS categoryalias, cc.access as cataccess'
+				//.' n.id AS nextid, n.title AS nexttitle, n.alias AS nextalias,'
+				//.' p.id AS previd, p.title AS prevtitle, p.alias AS prevalias'
+				.' FROM #__content AS c'
+				.' LEFT JOIN #__categories AS cc ON cc.id = c.catid'
+				//.' LEFT JOIN #__content AS n ON cc.id = n.catid AND n.ordering > c.ordering'
+				//.' LEFT JOIN #__content AS p ON cc.id = p.catid AND p.ordering < c.ordering'
+				. ' WHERE ' . implode( ' AND ', $wheres )
+				//. ' GROUP BY c.id, c.title, c.alias, c.catid, c.ordering, cc.id, cc.title, cc.alias, cc.access'
+				. ' ORDER BY c.'.$articleOrdering;
 
 
 			$db->setQuery($query, 0, 1);
 
 			$cDoc = $db->loadObject();
+
+			$d['next']	= array();
+			$d['prev']	= array();
+			$d['list']	= array();
+			$d['doc']	= array();
 
 			if (!empty($cDoc)) {
 
@@ -68,7 +73,7 @@ class PhocaDocumentationNavigation
 				$d['doc']['cid']	= (int)$cDoc->catid;
 				$d['doc']['calias']	= $cDoc->categoryalias;
 
-				if (isset($cDoc->nextid) && (int)$cDoc->nextid > 0) {
+			/*	if (isset($cDoc->nextid) && (int)$cDoc->nextid > 0) {
 					$d['next']['id']	= (int)$cDoc->nextid;
 					$d['next']['title']	= $cDoc->nexttitle;
 					$d['next']['alias']	= $cDoc->nextalias;
@@ -85,7 +90,7 @@ class PhocaDocumentationNavigation
 					$d['prev']['calias']= $cDoc->categoryalias;
 				} else {
 					$d['prev'] = array();
-				}
+				} */
 
 				// Query LIST
 				$wheres		= array();
@@ -94,27 +99,51 @@ class PhocaDocumentationNavigation
 				$wheres[] 	= " cc.access IN (".$userLevels.")";
 				$wheres[] 	= " c.state = 1";
 				$wheres[] 	= " cc.published = 1";
-				$query = " SELECT c.id, c.title, c.alias, cc.id AS cid, cc.title AS ctitle, cc.alias AS calias"
+				$query = " SELECT c.id, c.title, c.alias, c.ordering, cc.id AS cid, cc.title AS ctitle, cc.alias AS calias"
 				." FROM #__content AS c, #__categories AS cc"
 				." WHERE " . implode( " AND ", $wheres )
                 .' ORDER BY c.'.$articleOrdering;
 				$db->setQuery($query);
 				$lDoc = $db->loadAssocList();
+
+				$currentArrayId = 0;
 				if (!empty($lDoc)) {
 					$d['list'] = $lDoc;
-				} else {
-					$d['list'] = array();
+					foreach($lDoc as $k => $v) {
+
+						if (isset($v['id']) && (int)$v['id'] == (int)$id) {
+							$currentArrayId = $k;
+							break;
+						}
+					}
+
+					// We don't search for ordering or id but for array key
+					// the array key starts from 0 ++ and it is not ordering or id so we can get prev and next
+					// in case the key will be ordering, there can be missing the number: 1 2 4 6 so then nothing will be found
+					$next = $currentArrayId + 1;
+					$prev = $currentArrayId - 1;// It can be even minus, there will be check for this
+
+					if (isset($lDoc[$next]) && !empty($lDoc[$next]) && isset($lDoc[$next]['id'])) {
+						$d['next']['id']	= (int)$lDoc[$next]['id'];
+						$d['next']['title']	= $lDoc[$next]['title'];
+						$d['next']['alias']	= $lDoc[$next]['alias'];
+						$d['next']['cid']	= (int)$lDoc[$next]['cid'];
+						$d['next']['ctitle']= $lDoc[$next]['ctitle'];
+						$d['next']['calias']= $lDoc[$next]['calias'];
+					}
+					if (isset($lDoc[$prev]) && !empty($lDoc[$prev]) && isset($lDoc[$prev]['id'])) {
+						$d['prev']['id']	= (int)$lDoc[$prev]['id'];
+						$d['prev']['title']	= $lDoc[$prev]['title'];
+						$d['prev']['alias']	= $lDoc[$prev]['alias'];
+						$d['prev']['cid']	= (int)$lDoc[$prev]['cid'];
+						$d['prev']['ctitle']= $lDoc[$prev]['ctitle'];
+						$d['prev']['calias']= $lDoc[$prev]['calias'];
+					}
 				}
 
-
-			} else {
-				$d['next']	= array();
-				$d['prev']	= array();
-				$d['list']	= array();
-				$d['doc']	= array();
 			}
 
-		
+
 			self::$doc = $d;
 		}
 		return self::$doc;
