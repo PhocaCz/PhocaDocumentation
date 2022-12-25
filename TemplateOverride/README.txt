@@ -29,4 +29,4 @@ Phoca Documentation Navigation plugin is standard Joomla plugin and can be insta
 
 
 https://www.phoca.cz
-https://www.phoca.cz/com_phocadocumentation
+https://www.phoca.cz/phocadocumentation
