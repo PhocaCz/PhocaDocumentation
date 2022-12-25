@@ -1,0 +1,23 @@
+<svg aria-hidden="true" class="pdoc-sr-only" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs>
+        <symbol id="pdoc-si-category" viewBox="0 0 512 512">
+            <path d="M496 152a56 56 0 0 0-56-56H220.11a23.89 23.89 0 0 1-13.31-4L179 73.41A55.77 55.77 0 0 0 147.89 64H72a56 56 0 0 0-56 56v48a8 8 0 0 0 8 8h464a8 8 0 0 0 8-8ZM16 392a56 56 0 0 0 56 56h368a56 56 0 0 0 56-56V216a8 8 0 0 0-8-8H24a8 8 0 0 0-8 8Z"/>
+        </symbol>
+
+        <symbol id="pdoc-si-article" viewBox="0 0 512 512">
+            <path d="M428 224H288a48 48 0 01-48-48V36a4 4 0 00-4-4h-92a64 64 0 00-64 64v320a64 64 0 0064 64h224a64 64 0 0064-64V228a4 4 0 00-4-4z"/><path d="M419.22 188.59L275.41 44.78a2 2 0 00-3.41 1.41V176a16 16 0 0016 16h129.81a2 2 0 001.41-3.41z"/>
+        </symbol>
+
+        <symbol id="pdoc-si-prev" viewBox="0 0 512 512">
+            <path style="fill:none;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px" d="M249.38 336 170 256l79.38-80M181.03 256H342"/><path d="M448 256c0-106-86-192-192-192S64 150 64 256s86 192 192 192 192-86 192-192Z" style="fill:none;stroke-miterlimit:10;stroke-width:32px"/>
+        </symbol>
+
+        <symbol id="pdoc-si-next" viewBox="0 0 512 512">
+            <path style="fill:none;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px" d="M262.62 336 342 256l-79.38-80M330.97 256H170"/><path d="M256 448c106 0 192-86 192-192S362 64 256 64 64 150 64 256s86 192 192 192Z" style="fill:none;stroke-miterlimit:10;stroke-width:32px"/>
+        </symbol>
+
+        <symbol id="pdoc-si-top" viewBox="0 0 512 512">
+            <path style="fill:none;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px" d="M176 249.38L256 170l80 79.38m-80-68.35V342"/><path d="M448 256c0-106-86-192-192-192S64 150 64 256s86 192 192 192 192-86 192-192z" style="fill:none;stroke-miterlimit:10;stroke-width:32px"/>
+        </symbol>
+    </defs>
+</svg>

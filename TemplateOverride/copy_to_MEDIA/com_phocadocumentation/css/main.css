@@ -1,0 +1,117 @@
+/* @package Joomla
+ * @copyright Copyright (C) Open Source Matters. All rights reserved.
+ * @license http://www.gnu.org/copyleft/gpl.html GNU/GPL, see LICENSE.php
+ * @extension Phoca Documentation
+ * @copyright Copyright (C) Jan Pavelka www.phoca.cz - https://www.phoca.cz/phocacart
+ * @license http://www.gnu.org/copyleft/gpl.html GNU/GPL
+ */
+
+/* SVG ICONS */
+/* Icons */
+.pdoc-si {
+    width: 1.5em;
+    height: 1.5em;
+    fill: currentColor;
+    margin: 0;
+    stroke: #5f5f5f;
+}
+/* Icons inside button */
+.btn .pdoc-si {
+    margin-right: 0.3em;
+    margin-top: -0.2em;
+    stroke: #f5f5f5;
+}
+.btn.btn-secondary .pdoc-si {
+    stroke: #5f5f5f;
+}
+
+.mod-phocadocumentation-category ul.pdoc-category-article-list,
+.mod-phocadocumentation-category ul.pdoc-category-category-list,
+.com-phocadocumentation ul.pdoc-category-article-list,
+.com-phocadocumentation ul.pdoc-categories-category-list {
+    margin: 0.5em 0;
+}
+
+.mod-phocadocumentation-category ul.pdoc-category-article-list li,
+.mod-phocadocumentation-category ul.pdoc-category-category-list li,
+.com-phocadocumentation ul.pdoc-category-article-list li,
+.com-phocadocumentation ul.pdoc-categories-category-list li {
+    padding: 0.1em 0;
+    margin: 0;
+    border: 0;
+    line-height: initial;
+}
+
+.mod-phocadocumentation-category ul.pdoc-category-category-list li .pdoc-si,
+.com-phocadocumentation .card ul li .pdoc-si {
+    margin-right: 0.3em;
+    padding-bottom: 0.2em;
+    stroke: #f7aa00;
+    fill: #f7aa00;
+    vertical-align: middle;
+}
+
+.mod-phocadocumentation-category ul.pdoc-category-article-list li .pdoc-si,
+.com-phocadocumentation ul.pdoc-category-article-list li .pdoc-si {
+
+    margin-right: 0.1em;
+    padding-bottom: 0.2em;
+    stroke: #235784;
+    fill: #235784;
+    vertical-align: middle;
+}
+
+.com-phocadocumentation .btn.btn-primary {
+
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+}
+
+.com-phocadocumentation .btn.btn-primary .pdoc-si {
+
+    margin-right: 0.3em;
+    padding-bottom: 0em;
+    stroke: #fff;
+    fill: #fff;
+}
+
+.plg-phocadocumentationnavigation .pdoc-si {
+
+    stroke: #235784;
+    fill: #235784;
+    vertical-align: middle;
+}
+.plg-phocadocumentationnavigation .pdoc-link-inactive {
+    display: inline-block;
+}
+.plg-phocadocumentationnavigation .pdoc-link-inactive .pdoc-si {
+
+    stroke: #e0e0e0;
+    fill: #e0e0e0;
+    vertical-align: middle;
+}
+
+.pdoc-popover-box ul {
+    margin: 0;
+    padding: 0.3em;
+}
+.pdoc-popover-box ul li {
+    padding: 0.1em 0;
+    margin: 0;
+    border: 0;
+    line-height: initial;
+}
+
+.pdoc-nav-sep {
+    color: #5f5f5f;
+    font-weight: bold;
+    display: inline-block;
+}
+
+.pdoc-nav-box {
+    float: right;
+    margin: 0.5em;
+    padding: 0.5em;
+    border-radius: 3px;
+    background: #f0f0f0;
+}
