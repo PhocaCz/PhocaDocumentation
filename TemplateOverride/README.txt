@@ -1,6 +1,6 @@
-Phoca Documentation is not more a component but template override (since Joomla 4).
+Phoca Documentation is not more a component but template override(since Joomla 4).
 
-This is not an installation package. This package includes files which should be copied to your template folder. These files include template override for "List All Categories in an Article Category Tree" view (articles view - displaying all categories).
+This is not an installation package. This package includes files which should be copied to your template folder. These files include template override for "Phoca Documentation Categories View and "Phoca Documentation Category View"
 
 In this package, there are two folders:
 
@@ -21,12 +21,13 @@ In this package, there are two folders:
                +- categories
                +- category
 
-
 Visit Phoca documentation website - https://www.phoca.cz/documentation - for more detailed instructions.
+
+https://www.phoca.cz/documentation/79-phoca-documentation/6-phoca-documentation-component/1219-phoca-documentation-joomla-4-template-override
 
 Phoca Documentation Category module is standard Joomla module and can be installed in Joomla extension manager.
 Phoca Documentation Navigation plugin is standard Joomla plugin and can be installed in Joomla extension manager.
 
 
 https://www.phoca.cz
-https://www.phoca.cz/phocadocumentation
+https://www.phoca.cz/com_phocadocumentation
